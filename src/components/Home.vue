@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Welcome to the Home Page</h1>
-    <p>Raymart E. Magallanes BSIT 3</p>
+    <h1>Welcome to the Product Management</h1>
+    <p>Raymart Magallanes BSIT III</p>
   </div>
 </template>
 
@@ -10,5 +10,3 @@ export default {
   name: "Home",
 };
 </script>
-
-<style></style>

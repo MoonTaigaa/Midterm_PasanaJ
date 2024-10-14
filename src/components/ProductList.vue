@@ -2,17 +2,16 @@
   <div>
     <ul>
       <li v-for="(product, index) in products" :key="index">
-        <div v-if="editedIndex !== index">
-          <span>{{ product.name }}</span>
-          <span>{{ product.price }}</span>
-          <span>{{ product.description }}</span>
-          <button @click="editProduct(index)">Edit</button>
+        <div v-if="editingIndex === index">
+          <input v-model="editedProduct.name" placeholder="Edit name" />
+          <input v-model="editedProduct.price" placeholder="Edit price" />
+          <textarea v-model="editedProduct.description"></textarea>
+          <button @click="saveEdit(index)">Save</button>
         </div>
         <div v-else>
-          <input v-model="editedProduct.name" />
-          <input v-model="editedProduct.price" />
-          <textarea v-model="editedProduct.description"></textarea>
-          <button @click="saveProduct(index)">Save</button>
+          <strong>{{ product.name }}</strong> - ${{ product.price }}
+          <p>{{ product.description }}</p>
+          <button @click="editProduct(index)">Edit</button>
         </div>
       </li>
     </ul>
@@ -24,18 +23,18 @@ export default {
   props: ["products"],
   data() {
     return {
-      editedIndex: null,
-      editedProduct: { name: "", price: 0, description: "" },
+      editingIndex: null,
+      editedProduct: {},
     };
   },
   methods: {
     editProduct(index) {
-      this.editedIndex = index;
+      this.editingIndex = index;
       this.editedProduct = { ...this.products[index] };
     },
-    saveProduct(index) {
-      this.$emit("update-product", { index, product: this.editedProduct });
-      this.editedIndex = null;
+    saveEdit(index) {
+      this.$emit("edit-product", { index, product: this.editedProduct });
+      this.editingIndex = null;
     },
   },
 };

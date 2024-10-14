@@ -1,16 +1,14 @@
 <template>
   <div>
-    <nav>
-      <router-link to="/products">Products</router-link>
-      <router-link to="/home">Home</router-link>
-    </nav>
-    <router-view></router-view>
+    <h2>Product List</h2>
+    <ProductForm @add-product="addProduct" />
+    <ProductList :products="products" @edit-product="editProduct" />
   </div>
 </template>
 
 <script>
-import ProductForm from "./ProductForm.vue";
-import ProductList from "./ProductList.vue";
+import ProductForm from "@/components/ProductForm.vue";
+import ProductList from "@/components/ProductList.vue";
 
 export default {
   components: {
@@ -26,8 +24,8 @@ export default {
     addProduct(product) {
       this.products.push(product);
     },
-    updateProduct({ index, product }) {
-      this.$set(this.products, index, product);
+    editProduct({ index, product }) {
+      this.product[index] = product;
     },
   },
 };

@@ -1,11 +1,9 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div>
+    <nav>
+      <router-link to="/home">Home</router-link>
+      <router-link to="/products">Products</router-link>
+    </nav>
+    <router-view />
   </div>
 </template>
-
-<script>
-export default {
-  name: "App",
-};
-</script>
