@@ -3,8 +3,18 @@ import Home from "@/components/Home.vue";
 import Products from "@/components/Products.vue";
 
 const routes = [
-  { path: "/home", component: Home },
-  { path: "/products", component: Products },
+  {
+    path: "/",
+    redirect: "/home",
+  },
+  {
+    path: "/home",
+    component: Home,
+  },
+  {
+    path: "/products",
+    component: Products,
+  },
 ];
 
 const router = createRouter({
