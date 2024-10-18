@@ -1,18 +1,18 @@
 <template>
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="name">Product Name:</label>
-      <input type="text" v-model="name" />
+  <form class="product-form" @submit.prevent="submitForm">
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input type="text" v-model="name" id="name" required />
     </div>
-    <div>
-      <label for="price">Price:</label>
-      <input type="number" v-model="price" />
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" v-model="price" id="price" required min="0" />
     </div>
-    <div>
-      <label for="description">Description:</label>
-      <textarea v-model="description"></textarea>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea v-model="description" id="description" required></textarea>
     </div>
-    <button type="submit">Add Product</button>
+    <button type="submit" class="submit-button">Add Product</button>
   </form>
 </template>
 
@@ -33,6 +33,9 @@ export default {
         description: this.description,
       };
       this.$emit("add-product", product);
+      this.resetForm();
+    },
+    resetForm() {
       this.name = "";
       this.price = 0;
       this.description = "";
