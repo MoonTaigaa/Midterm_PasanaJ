@@ -1,6 +1,6 @@
 <template>
   <div class="products-view">
-    <h2>Products</h2>
+    <h2 class="product-title">Products</h2>
     <ProductForm @add-product="addProduct" />
     <ProductList :products="products" @edit-product="updateProduct" />
   </div>
