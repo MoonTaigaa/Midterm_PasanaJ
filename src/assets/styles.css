@@ -68,9 +68,9 @@ label {
 input[type="text"],
 input[type="number"],
 textarea {
+  border: 1px solid #243642;
   width: calc(100% - 10px);
   padding: 8px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
 }
@@ -83,7 +83,7 @@ textarea:focus {
 
 .submit-button {
   padding: 10px 15px;
-  border: none;
+  border: 1px solid #243642;
   border-radius: 5px;
   background-color: #789dbc;
   color: white;
@@ -105,7 +105,7 @@ textarea:focus {
 .product-list li {
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #243642;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -126,7 +126,7 @@ textarea:focus {
 
 button {
   padding: 5px 10px;
-  border: none;
+  border: 1px solid #243642;
   border-radius: 5px;
   background-color: #789dbc;
   color: white;
